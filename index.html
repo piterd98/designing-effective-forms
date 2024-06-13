@@ -17,13 +17,19 @@
     <div class="container">
         <h1>Uzupełnij formularz</h1>
         <form id="form">
-            <div class="mb-3">
-                <label for="firstName" class="form-label">Imię</label>
-                <input type="text" class="form-control" id="firstName" placeholder="Wpisz imię" required>
+            <div class="row mb-3">
+                <label for="firstName" class="form-label col-sm-1">Imię</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="firstName" placeholder="Wpisz imię" required>
+                </div>
+                <label for="lastName" class="form-label col-sm-1">Nazwisko</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="lastName" placeholder="Wpisz nazwisko" required>
+                </div>
             </div>
             <div class="mb-3">
-                <label for="lastName" class="form-label">Nazwisko</label>
-                <input type="text" class="form-control" id="lastName" placeholder="Wpisz nazwisko" required>
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Wpisz email">
             </div>
             <div class="mb-3">
                 <label for="street" class="form-label">Ulica</label>
@@ -37,16 +43,15 @@
                 </select>
             </div>
             <div class="row mb-3">
-                <label for="phoneNumber" class="form-label">Numer telefonu komórkowego</label>
-                <div class="input-group">
+                <label for="phoneNumber" class="form-label col-sm-2">Numer telefonu komórkowego</label>
+                <div class="input-group col-sm-6">
                     <select class="form-select" id="countryCode" aria-label="Wybierz numer kierunkowy">
                         <option selected>Wybierz...</option>
                         <option value="+48">+48 (Polska)</option>
                         <option value="+1">+1 (Stany Zjednoczone)</option>
-                        <!-- Dodaj więcej opcji, jeśli jest to potrzebne -->
+                        <!-- Add more options if needed -->
                     </select>
-                    <input type="text" class="form-control" id="phoneNumber" placeholder="Wpisz numer komórkowy"
-                        required>
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="Wpisz numer komórkowy" required>
                 </div>
             </div>
             <div class="mb-3">
@@ -58,12 +63,19 @@
                 <input type="text" class="form-control" id="zipCode" placeholder="Wpisz kod pocztowy" required>
             </div>
             <div class="mb-3">
-                <label for="shippingMethod" class="form-label">Rodzaj przesyłki</label>
-                <select class="form-select" id="shippingMethod" required>
-                    <option value="">Wybierz rodzaj przesyłki</option>
-                    <option value="DPD">DPD</option>
-                    <option value="InPost">InPost</option>
-                </select>
+                <label class="form-label">Rodzaj przesyłki</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="shippingMethod" id="dpdRadio" value="DPD" required>
+                    <label class="form-check-label" for="dpdRadio">
+                        <img src="dpd-logo.png" alt="DPD Logo" class="shipping-logo"> DPD
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="shippingMethod" id="inpostRadio" value="InPost" required>
+                    <label class="form-check-label" for="inpostRadio">
+                        <img src="inpost-logo.png" alt="InPost Logo" class="shipping-logo"> InPost
+                    </label>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="paymentMethod" class="form-label">Rodzaj płatności</label>
@@ -74,16 +86,6 @@
                     <option value="pośrednik">Pośrednik płatności</option>
                 </select>
             </div>
-
-            <!-- Dodatkowe pola, np. dane do faktury -->
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="vatUE">
                 <label class="form-check-label" for="vatUE">VAT UE</label>
@@ -91,24 +93,17 @@
             <div class="mb-3">
                 <label for="vatNumber" class="form-label">VAT Number</label>
                 <input type="text" class="form-control" id="vatNumber" aria-describedby="vatHelp">
-                <div id="vatHelp" class="form-text">Kod kraju państwa członkowskiego i seria cyfr unikalnych dla tego
-                    podmiotu gospodarczego.</div>
+                <div id="vatHelp" class="form-text">Kod kraju państwa członkowskiego i seria cyfr unikalnych dla tego podmiotu gospodarczego.</div>
             </div>
-
             <div class="mb-3">
                 <label for="invoiceData" class="form-label">Dane do faktury</label>
                 <textarea class="form-control" id="invoiceData" rows="3" placeholder="Wpisz dane do faktury"></textarea>
             </div>
-
-            <button type="submit" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#form-feedback-modal">submit</button>
+            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#form-feedback-modal">submit</button>
         </form>
     </div>
 
-
-    <!-- Raport kliknięć -->
-    <div class="modal fade" id="form-feedback-modal" tabindex="-1" aria-labelledby="raportModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="form-feedback-modal" tabindex="-1" aria-labelledby="raportModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
